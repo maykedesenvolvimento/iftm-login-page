@@ -18,10 +18,6 @@
             background-color: #186B6B;    
         }
 
-        @keyframes fade {
-            0% { opacity: 0 }
-            100% { opacity: 0.8 }
-        }
 
         #banner {
             position: absolute;
@@ -31,7 +27,6 @@
             background-repeat: no-repeat;
             background-size: cover;
             opacity: 0.8;
-            animation: fade 3s;
         }
 
         #login-box {
@@ -75,25 +70,22 @@
             margin: 1.5em 0;
         }
 
-        #info-box {
-            width: 360px;
-            border-radius: 2px;
-            margin-top: 1em;
-            box-shadow: rgba(116, 114, 51, 0.5) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.4) 12px 18px 36px -18px inset;
-            padding: 1em;
-            text-align: justify;
+        @keyframes bounce {
+            0% { transform: scale(1) translateY(2); }
+            50% { transform: scale(1.2) translateY(0); }
+            100% { transform: scale(0.8) translateY(1); }
         }
-  
+
+        h2 {
+            color: red;
+            font-size: large;
+            animation-name: bounce;
+            animation-duration: 0.8s;
+        }
+
         @media (max-width: 720px) {
             #info-box {
                 display: none;
-            }
-
-            #login-box {
-                width: 100%;
-                min-width: 0;
-                height: 100%;
-                background: rgba(215,215,215,0.75);
             }
 
             #banner {
@@ -113,14 +105,7 @@
         <input class="field" type="text" placeholder="Usuário" autocomplete="off" required />
         <input class="field" type="password" placeholder="Senha" autocomplete="off" required />
         <input type="submit" id="button" value="Autenticar" />
-        <div id="info-box">
-            <p>
-                Atenção: <b>Aluno(a)</b> deve utilizar <b>CPF</b> para <b>usuário</b> e também para <b>senha</b>. 
-            </p>
-            <p>
-               <b>Servidor(a)</b> deverá utilizar credenciais da rede local do campus.
-            </p>
-        </div>
+        <h2>Usuário ou senha inválidos!</h2>
     </div>
 </body>
 </html>
