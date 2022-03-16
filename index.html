@@ -27,7 +27,7 @@
             position: absolute;
             width: 100%;
             height: 100vh;
-            background-image: url('iftm_background.jpeg');
+            background-image: url(%%IMAGE:iftm_bg%%);
             background-repeat: no-repeat;
             background-size: cover;
             opacity: 0.8;
@@ -108,10 +108,13 @@
 </head>
 <body>
     <div id="banner"></div>
-    <div id="login-box">
-        <img src="iftm_logo.png" id="logo">
-        <input class="field" type="text" placeholder="Usuário" autocomplete="off" required />
-        <input class="field" type="password" placeholder="Senha" autocomplete="off" required />
+    <form id="login-box" action="%%AUTH_POST_URL%%" method="post">
+        <img src="%%IMAGE:iftm_logo%%" id="logo">
+        <input type="hidden" name="%%REDIRID%%" value="%%PROTURI%%">
+        <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%">
+        <input type="hidden" name="%%METHODID%%" value="%%METHODVAL%%">
+        <input class="field" name="%%USERNAMEID%%" type="text" placeholder="Usuário" autocomplete="off" required />
+        <input class="field" name="%%PASSWORDID%%" type="password" placeholder="Senha" autocomplete="off" required />
         <input type="submit" id="button" value="Autenticar" />
         <div id="info-box">
             <p>
@@ -121,6 +124,6 @@
                <b>Servidor(a)</b> deverá utilizar credenciais da rede local do campus.
             </p>
         </div>
-    </div>
+    </form>
 </body>
 </html>
